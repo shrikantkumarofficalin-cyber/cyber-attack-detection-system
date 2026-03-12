@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cyber Attack Detection System</title>
+
+<style>
+
+body{
+font-family: Arial, sans-serif;
+background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+margin:0;
+color:white;
+}
+
+.container{
+background:white;
+color:black;
+padding:40px;
+border-radius:15px;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+width:350px;
+text-align:center;
+}
+
+h1{
+margin-bottom:25px;
+}
+
+input{
+width:100%;
+padding:10px;
+margin:10px 0;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+}
+
+button{
+width:100%;
+padding:12px;
+background:#ff6b6b;
+color:white;
+border:none;
+border-radius:8px;
+font-size:16px;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+background:#ff3b3b;
+}
+
+#result{
+margin-top:20px;
+font-weight:bold;
+}
+
+</style>
+
+<script>
+function checkAttack(){
+
+let source = document.getElementById("source").value;
+let destination = document.getElementById("destination").value;
+
+if(source > 10000 || destination > 10000){
+document.getElementById("result").innerHTML="⚠ Possible Cyber Attack Detected!";
+document.getElementById("result").style.color="red";
+}
+else{
+document.getElementById("result").innerHTML="✅ Normal Network Traffic";
+document.getElementById("result").style.color="green";
+}
+
+}
+</script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Cyber Attack Detection</h1>
+
+<input type="number" id="duration" placeholder="Duration">
+
+<input type="number" id="source" placeholder="Source Bytes">
+
+<input type="number" id="destination" placeholder="Destination Bytes">
+
+<button onclick="checkAttack()">Check</button>
+
+<h3 id="result"></h3>
+
+</div>
+
+</body>
+</html>
